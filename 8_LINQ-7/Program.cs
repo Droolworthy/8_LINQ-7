@@ -28,9 +28,9 @@ namespace LINQ7
         {
             bool isWork = true;
 
-            string letter = "Б";
             string commandShowSoldierSurname = "1";
             string commandExit = "2";
+            string letter = "Б";
 
             Console.WriteLine("Показать фамилии солдат 2 отряда - " + commandShowSoldierSurname);
             Console.WriteLine("Выход - " + commandExit);
