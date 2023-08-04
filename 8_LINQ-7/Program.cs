@@ -16,8 +16,8 @@ namespace LINQ7
 
     class Database
     {      
-        private readonly List<Soldier> _stormtrooperSoldiers = new List<Soldier>();
-        private readonly List<Soldier> _scoutsSoldiers = new List<Soldier>();
+        private  List<Soldier> _stormtrooperSoldiers = new List<Soldier>();
+        private  List<Soldier> _scoutsSoldiers = new List<Soldier>();
 
         public Database()
         {
@@ -28,6 +28,7 @@ namespace LINQ7
         {
             bool isWork = true;
 
+            string letter = "Б";
             string commandShowSoldierSurname = "1";
             string commandExit = "2";
 
@@ -41,12 +42,19 @@ namespace LINQ7
 
                 if (userInput == commandShowSoldierSurname)
                 {
-                    var filteredSoldiers = _stormtrooperSoldiers.Where(soldier => soldier.Surname.StartsWith("Б"));
+                    var filteredSoldiers = _stormtrooperSoldiers.Where(soldier => soldier.Surname.StartsWith(letter));
 
-                    foreach (var soldier in _scoutsSoldiers.Union(filteredSoldiers))
-                    {
-                        Console.WriteLine("Фамилия - " + soldier.Surname);
-                    }
+                    _scoutsSoldiers = _scoutsSoldiers.Union(filteredSoldiers).ToList();
+
+                    _stormtrooperSoldiers = _stormtrooperSoldiers.Except(filteredSoldiers).ToList();
+
+                    Console.WriteLine("Первый отряд: ");
+
+                    ShowFilteredSoldiers(_stormtrooperSoldiers);
+
+                    Console.WriteLine("\nВторой отряд: ");
+
+                    ShowFilteredSoldiers(_scoutsSoldiers);
                 }
                 else if (userInput == commandExit)
                 {
@@ -56,6 +64,14 @@ namespace LINQ7
                 {
                     Console.WriteLine("Ошибка. Попробуйте ещё раз.");
                 }
+            }
+        }
+
+        private void ShowFilteredSoldiers(List<Soldier> filteredSoldiers)
+        {
+            foreach (var soldier in filteredSoldiers)
+            {
+                Console.WriteLine("Фамилия - " + soldier.Surname);
             }
         }
 
