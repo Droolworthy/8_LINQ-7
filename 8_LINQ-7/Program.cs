@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LINQ6
+namespace LINQ7
 {
     internal class Program
     {
