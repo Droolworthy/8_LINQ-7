@@ -47,14 +47,6 @@ namespace LINQ7
                     _scoutsSoldiers = _scoutsSoldiers.Union(filteredSoldiers).ToList();
 
                     _stormtrooperSoldiers = _stormtrooperSoldiers.Except(filteredSoldiers).ToList();
-
-                    Console.WriteLine("Первый отряд: ");
-
-                    ShowFilteredSoldiers(_stormtrooperSoldiers);
-
-                    Console.WriteLine("\nВторой отряд: ");
-
-                    ShowFilteredSoldiers(_scoutsSoldiers);
                 }
                 else if (userInput == commandExit)
                 {
@@ -64,14 +56,6 @@ namespace LINQ7
                 {
                     Console.WriteLine("Ошибка. Попробуйте ещё раз.");
                 }
-            }
-        }
-
-        private void ShowFilteredSoldiers(List<Soldier> filteredSoldiers)
-        {
-            foreach (var soldier in filteredSoldiers)
-            {
-                Console.WriteLine("Фамилия - " + soldier.Surname);
             }
         }
 
