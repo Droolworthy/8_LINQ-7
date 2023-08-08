@@ -1,3 +1,5 @@
+//Есть 2 списка в солдатами.
+//Всех бойцов из отряда 1, у которых фамилия начинается на букву Б, требуется перевести в отряд 2.
 using System;
 using System.Collections.Generic;
 using System.Linq;
