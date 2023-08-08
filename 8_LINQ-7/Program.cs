@@ -28,7 +28,7 @@ namespace LINQ7
         {
             bool isWork = true;
 
-            string commandShowSoldierSurname = "1";
+            string commandSoldierSurname = "1";
             string commandExit = "2";
             string letter = "Б";
 
